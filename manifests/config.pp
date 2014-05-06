@@ -20,7 +20,7 @@ class nagdash::config(
 
   file { '/etc/nginx/sites-enabled/default':
     ensure  => 'link',
-    target  => "/etc/nginx/sites-available/default",
+    target  => 'etc/nginx/sites-available/default',
     force   => true,
   } ->
 
@@ -28,7 +28,7 @@ class nagdash::config(
     ensure  => present,
     section => 'PHP',
     setting => 'short_open_tag',
-    value   => "On",
+    value   => 'On',
     path    => '/etc/php5/cli/php.ini',
   } ->
 

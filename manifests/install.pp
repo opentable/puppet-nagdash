@@ -13,9 +13,9 @@ class nagdash::install {
       ensure_resource('package', ['php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx'], {'ensure' => 'installed'})
 
       vcsrepo { $nagdash::webroot:
-        ensure => present,
+        ensure   => present,
         provider => git,
-        source => $nagdash::repository_source,
+        source   => $nagdash::repository_source,
         revision => $nagdash::repository_revision
       }
 
