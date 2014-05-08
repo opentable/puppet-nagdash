@@ -1,5 +1,5 @@
 name 'opentable/nagdash'
-version '0.1.0'
+version '0.1.1'
 author 'opentable'
 license 'MIT'
 summary 'Module that will install the Nagdash dashboard on a webserver'

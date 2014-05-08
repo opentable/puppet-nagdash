@@ -10,7 +10,7 @@ class nagdash::install {
 
   case downcase($::osfamily) {
     'debian': {
-      ensure_resource('package', ['php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx'], {'ensure' => 'installed'})
+      ensure_resource('package', ['php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx', 'git'], {'ensure' => 'installed'})
 
       vcsrepo { $nagdash::webroot:
         ensure   => present,

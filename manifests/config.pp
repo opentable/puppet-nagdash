@@ -20,7 +20,7 @@ class nagdash::config(
 
   file { '/etc/nginx/sites-enabled/default':
     ensure  => 'link',
-    target  => 'etc/nginx/sites-available/default',
+    target  => '/etc/nginx/sites-available/default',
     force   => true,
   } ->
 
