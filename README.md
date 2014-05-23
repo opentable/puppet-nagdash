@@ -43,7 +43,7 @@ Nagdash has the ability to display the information for 1 or more nagios hosts. T
 
 ```puppet
 $myhost = {
-    'firsthost.mydomain.com' => {'port' => '8080', 'protocol' => 'http', 'tag' => 'MY', 'tagcolour' => '#336699'}
+    'firsthost.mydomain.com' => {'port' => '8080', 'protocol' => 'http', 'tag' => 'MY', 'tagcolour' => '#336699', any_nagdash_setting => 'value', ....}
 }
 
 class {'nagdash':
@@ -51,13 +51,15 @@ class {'nagdash':
 }
 
 ```
+
+
 You can specify more than 1 host to pass to the class e.g.
 
 
 ```puppet
 $hostlist = {
-    'firsthost.mydomain.com' => {'port' => '8080', 'protocol' => 'http', 'tag' => '1st', 'tagcolour' => '#336699'},
-    'secondhost.mydomain.com' => {'port' => '8080', 'protocol' => 'http', 'tag' => '2nd', 'tagcolour' => '#191919'}
+    'firsthost.mydomain.com' => {'port' => '8080', 'protocol' => 'http', 'tag' => '1st', 'tagcolour' => '#336699', any_nagdash_setting => 'value', ....},
+    'secondhost.mydomain.com' => {'port' => '8080', 'protocol' => 'http', 'tag' => '2nd', 'tagcolour' => '#191919', any_nagdash_setting => 'value', ....}
 }
 
 class {'nagdash':
