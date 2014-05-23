@@ -10,11 +10,11 @@ $nagios_hosts = <%=
       .map { |key, value| "'#{key}' => '#{value}'" } \
       .map { |value| "    #{value}"} \
       .join(",\n") \
-      .prepend("  array(\n") \
+      .insert(0,"  array(\n") \
       .concat("\n  )")
   end \
     .join(",\n") \
-    .prepend("array(\n") \
+    .insert(0,"array(\n") \
     .concat("\n);\n")
 %>
 
