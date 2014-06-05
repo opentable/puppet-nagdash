@@ -2,6 +2,6 @@ fixtures:
   repositories:
     stdlib: https://github.com/puppetlabs/puppetlabs-stdlib
     vcsrepo: https://github.com/puppetlabs/puppetlabs-vcsrepo
-    inifil: https://github.com/puppetlabs/puppetlabs-inifile
+    inifile: https://github.com/puppetlabs/puppetlabs-inifile
   symlinks:
     nagdash: "#{source_dir}"
