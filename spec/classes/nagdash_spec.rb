@@ -20,82 +20,78 @@ describe 'nagdash', :type => :class do
   context 'using params defaults the install class' do
     it { should contain_class('nagdash::install') }
 
-    it { should contain_package('php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx')
-      .with_ensure('installed')
-    }
+    it { should contain_package('php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx').with(
+      'ensure' => 'installed'
+    )}
 
-    it { should contain_vcsrepo('/var/www/nagdash')
-      .with_ensure('present')
-      .with_source('https://github.com/lozzd/Nagdash')
-      .with_provider('git')
-      .with_revision('b9bde411bac206f05dcf138c9b252eec8d2c175a')
-    }
+    it { should contain_vcsrepo('/var/www/nagdash').with(
+      'ensure'   => 'present',
+      'source'   => 'https://github.com/lozzd/Nagdash',
+      'provider' => 'git',
+      'revision' => 'b9bde411bac206f05dcf138c9b252eec8d2c175a'
+    )}
 
   end
 
   context 'using params defaults the config class' do
     it { should contain_class('nagdash::config') }
 
-    it { should contain_file('/etc/nginx/sites-available/default')
-      .with_ensure('file')
-      .with_mode('0755')
-      .with_content(/fastcgi_index index.php/)
-      .with_notify('Service[nginx]')
-    }
+    it { should contain_file('/etc/nginx/sites-available/default').with(
+      'ensure'  => 'file',
+      'mode'    => '0755',
+      'notify'  => 'Service[nginx]'
+    )}
 
-    it { should contain_file('/etc/nginx/sites-enabled/default')
-      .with_ensure('link')
-      .with_target('/etc/nginx/sites-available/default')
-      .with_force('true')
-    }
+    it { should contain_file('/etc/nginx/sites-available/default').with_content(/fastcgi_index index.php/) }
 
-    it { should contain_ini_setting('update php.ini to enable short_open_tag')
-      .with_ensure('present')
-      .with_section('PHP')
-      .with_setting('short_open_tag')
-      .with_value('On')
-      .with_path('/etc/php5/cli/php.ini')
-    }
+    it { should contain_file('/etc/nginx/sites-enabled/default').with(
+      'ensure' => 'link',
+      'target' => '/etc/nginx/sites-available/default',
+      'force'  => 'true'
+    )}
 
-    it { should contain_file('/var/www/nagdash/config.php')
-      .with_ensure('file')
-      .with_mode('0755')
-      .with_content(/nagios_hosts = array/)
-      .with_notify('Service[nginx]')
-    }
+    it { should contain_ini_setting('update php.ini to enable short_open_tag').with(
+      'ensure'  => 'present',
+      'section' => 'PHP',
+      'setting' => 'short_open_tag',
+      'value'   => 'On',
+      'path'    => '/etc/php5/cli/php.ini'
+    )}
+
+    it { should contain_file('/var/www/nagdash/config.php').with(
+      'ensure'  => 'file',
+      'mode'    => '0755',
+      'notify'  => 'Service[nginx]'
+    )}
+
+    it { should contain_file('/var/www/nagdash/config.php').with_content(/nagios_hosts = array/) }
 
   end
 
   context 'using params defaults the service class' do
     it { should contain_class('nagdash::service') }
 
-    it { should contain_service('apache2')
-      .with_ensure('stopped')
-    }
+    it { should contain_service('apache2').with('ensure' => 'stopped') }
 
-    it { should contain_service('nginx')
-      .with_ensure('running')
-    }
+    it { should contain_service('nginx').with('ensure' => 'running') }
 
-    it { should contain_service('php5-fpm')
-      .with_ensure('running')
-    }
+    it { should contain_service('php5-fpm').with('ensure' => 'running') }
 
   end
 
   context 'using params defaults the install class' do
     it { should contain_class('nagdash::install') }
 
-    it { should contain_package('php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx')
-    .with_ensure('installed')
-    }
+    it { should contain_package('php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx').with(
+      'ensure' => 'installed'
+    )}
 
-    it { should contain_vcsrepo('/var/www/nagdash')
-    .with_ensure('present')
-    .with_source('https://github.com/lozzd/Nagdash')
-    .with_provider('git')
-    .with_revision('b9bde411bac206f05dcf138c9b252eec8d2c175a')
-    }
+    it { should contain_vcsrepo('/var/www/nagdash').with(
+      'ensure'   => 'present',
+      'source'   => 'https://github.com/lozzd/Nagdash',
+      'provider' => 'git',
+      'revision' => 'b9bde411bac206f05dcf138c9b252eec8d2c175a'
+    )}
 
   end
 
