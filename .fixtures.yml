@@ -3,5 +3,6 @@ fixtures:
     stdlib: https://github.com/puppetlabs/puppetlabs-stdlib
     vcsrepo: https://github.com/puppetlabs/puppetlabs-vcsrepo
     inifile: https://github.com/puppetlabs/puppetlabs-inifile
+    apt: https://github.com/puppetlabs/puppetlabs-apt
   symlinks:
     nagdash: "#{source_dir}"

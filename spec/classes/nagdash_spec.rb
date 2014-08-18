@@ -3,7 +3,9 @@ require 'spec_helper'
 describe 'nagdash', :type => :class do
 
   let(:facts) { {
-      :osfamily  => 'Debian'
+      :osfamily        => 'Debian',
+      :lsbdistid       => 'ubuntu',
+      :lsbdistcodename => 'precise'
   } }
   let(:params) {{
       :webroot             => '/var/www/nagdash',
@@ -83,7 +85,8 @@ describe 'nagdash', :type => :class do
     it { should contain_class('nagdash::install') }
 
     it { should contain_package('php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx').with(
-      'ensure' => 'installed'
+      'ensure' => 'installed',
+      'require' => 'Apt::Source[ondrej]'
     )}
 
     it { should contain_vcsrepo('/var/www/nagdash').with(

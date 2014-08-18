@@ -5,5 +5,5 @@
 class nagdash::params {
   $webroot             = '/var/www/nagdash'
   $repository_source   = 'https://github.com/lozzd/Nagdash'
-  $repository_revision = 'b9bde411bac206f05dcf138c9b252eec8d2c175a'
+  $repository_revision = 'fd6f765e63a16052011a43835743b57938b2dfb5'
 }

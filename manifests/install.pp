@@ -10,7 +10,18 @@ class nagdash::install {
 
   case downcase($::osfamily) {
     'debian': {
-      ensure_resource('package', ['php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx', 'git'], {'ensure' => 'installed'})
+
+      ensure_resource('package', ['php5', 'php5-curl', 'php5-common', 'php5-cli', 'php5-fpm', 'nginx', 'git'], {
+        ensure => 'installed',
+        require => Apt::Source['ondrej']
+      })
+
+      apt::source { 'ondrej':
+        location    => 'http://ppa.launchpad.net/ondrej/php5-oldstable/ubuntu',
+        key         => 'E5267A6C',
+        key_content => template('nagdash/php5.ondrej.aptkey.gpg.erb'),
+        repos       => 'main'
+      }
 
       vcsrepo { $nagdash::webroot:
         ensure   => present,
