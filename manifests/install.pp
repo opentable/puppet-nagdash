@@ -1,7 +1,12 @@
+# Author::    Paul Stack  (mailto:pstack@opentable.com)
+# Copyright:: Copyright (c) 2013 OpenTable Inc
+# License::   MIT
+
 # == Class: nagdash::install
 #
-# The installation of the specific packages and the checkout of the source required to get nagdash running
-
+# This private class is meant to be called from `nagdash`.
+# It downloads and installs the nagdash application
+#
 class nagdash::install {
 
   if $caller_module_name != $module_name {

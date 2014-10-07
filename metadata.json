@@ -1,0 +1,39 @@
+{
+  "name":         "opentable-nagdash",
+  "version":      "0.1.22",
+  "author":       "opentable",
+  "license":      "MIT",
+  "summary":      "A module that will install the Nagdash dashboard on a webserver",
+  "source":       "https://github.com/opentable/puppet-nagdash",
+  "project_page": "https://github.com/opentable/puppet-nagdash",
+  "issue_url":    "https://github.com/opentable/puppet-nagdash/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": ["5.0","6.0"]
+    },
+    { "operatingsystem": "CentOS",
+      "operatingsystemrelease": ["5.0","6.0"]
+    },
+    { "operatingsystem": "Debian",
+      "operatingsystemrelease": ["6.0","7.0"]
+    },
+    { "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": ["12.04","14.04"]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 3.0.0 <5.0.0"
+    },
+    {
+      "name": "puppetlabs/vcsrepo",
+      "version_requirement": ">= 1.0.0 <2.0.0"
+    },
+    {
+      "name": "puppetlabs/inifile",
+      "version_requirement": ">= 1.0.0 <2.0.0"
+    }
+  ]
+}

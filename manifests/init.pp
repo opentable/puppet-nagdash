@@ -1,6 +1,15 @@
+# Author::    Paul Stack  (mailto:pstack@opentable.com)
+# Copyright:: Copyright (c) 2013 OpenTable Inc
+# License::   MIT
+
 # == Class: nagdash
 #
-# Module to install the nagdash Dashboard
+# The purpose of this module is to install the nagdash dashboard
+#
+# === Requirements/Dependencies
+#
+# Currently requires the puppetlabs/stdlib module on the Puppet Forge in
+# order to validate much of the the provided configuration.
 #
 # === Parameters
 #
@@ -12,11 +21,12 @@
 #   The git repository to check the source code out from. Please note there is no package to install from
 #   Defaults to https://github.com/lozzd/Nagdash
 #
-# [*srepository_source*]
+# [*repository_revision*]
 #   The revision of the source code (e.g. tag, git commit etc) that you want to run
 #   Defaults to latest
 #
-
+# === Examples
+#
 class nagdash(
   $webroot             = $nagdash::params::webroot,
   $repository_source   = $nagdash::params::repository_source,

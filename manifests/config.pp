@@ -1,7 +1,12 @@
+# Author::    Paul Stack  (mailto:pstack@opentable.com)
+# Copyright:: Copyright (c) 2013 OpenTable Inc
+# License::   MIT
+
 # == Class: nagdash::config
 #
-# The configuration of the applications for the nagdash web client
-
+# This private class is meant to be called from `nagdash`.
+# It configures the dashboard settings and the web server
+#
 class nagdash::config(
   $webroot = $nagdash::webroot,
   $hosts = $nagdash::hosts
