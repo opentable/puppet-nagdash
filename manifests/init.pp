@@ -14,16 +14,16 @@
 # === Parameters
 #
 # [*webroot*]
-#   The folder to run the Nagdash source code from
-#   Defaults to /var/www/nagdash
+# The folder to run the Nagdash source code from. Defaults to /var/www/nagdash
 #
 # [*repository_source*]
-#   The git repository to check the source code out from. Please note there is no package to install from
-#   Defaults to https://github.com/lozzd/Nagdash
+# The git repository to check the source code out from. Please note there is no package to install from. Defaults to https://github.com/lozzd/Nagdash
 #
 # [*repository_revision*]
-#   The revision of the source code (e.g. tag, git commit etc) that you want to run
-#   Defaults to latest
+# The revision of the source code (e.g. tag, git commit etc) that you want to run. Defaults to latest
+#
+# [*hosts*]
+# A list of nagios hosts to monitor.
 #
 # === Examples
 #
