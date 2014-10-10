@@ -24,9 +24,9 @@ class nagdash::config(
   } ->
 
   file { '/etc/nginx/sites-enabled/default':
-    ensure  => 'link',
-    target  => '/etc/nginx/sites-available/default',
-    force   => true,
+    ensure => 'link',
+    target => '/etc/nginx/sites-available/default',
+    force  => true,
   } ->
 
   ini_setting { 'update php.ini to enable short_open_tag':
