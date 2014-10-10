@@ -27,6 +27,18 @@
 #
 # === Examples
 #
+# To install a specific commit of the repository:
+#
+#   class { 'nagdash':
+#     repository_revision => '3d30f19ecc6bc8d12a16b0d9e5dba85f0fba9b5a'
+#   }
+#
+# By default, the source of the application gets installed to /var/www/nagdash. To change this:
+#
+#   class { 'nagdash':
+#     webroot => '/usr/local/nagdash'
+#   }
+#
 class nagdash(
   $webroot             = $nagdash::params::webroot,
   $repository_source   = $nagdash::params::repository_source,

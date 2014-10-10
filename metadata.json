@@ -1,12 +1,13 @@
 {
   "name":         "opentable-nagdash",
-  "version":      "0.1.22",
+  "version":      "0.1.1",
   "author":       "opentable",
   "license":      "MIT",
   "summary":      "A module that will install the Nagdash dashboard on a webserver",
   "source":       "https://github.com/opentable/puppet-nagdash",
   "project_page": "https://github.com/opentable/puppet-nagdash",
   "issue_url":    "https://github.com/opentable/puppet-nagdash/issues",
+  "tags": ["nagdash", "nagios", "dashboards", "monitoring"],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
