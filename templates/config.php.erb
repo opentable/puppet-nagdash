@@ -2,10 +2,21 @@
 // Config
 
 // Your Nagios hosts
-$nagios_hosts = array(<%- @hosts.each  do |key,value| %>
-array("hostname" => "<%= key %>", "port" => "<%= value['port'] %>", "protocol" => "<%= value['protocol'] %>", "tag" => "<%= value['tag'] %>", "tagcolour" => "<%= value['tagcolour'] %>" ),
-<%- end %>
-);
+$nagios_hosts = <%=
+  # convert the ruby hosts to php array of hashes per host
+  @hosts.map do |host,values|
+    values['hostname'] = host
+    values \
+      .map { |key, value| "'#{key}' => '#{value}'" } \
+      .map { |value| "    #{value}"} \
+      .join(",\n") \
+      .insert(0,"  array(\n") \
+      .concat("\n  )")
+  end \
+    .join(",\n") \
+    .insert(0,"array(\n") \
+    .concat("\n);\n")
+%>
 
 // Globally filter out hosts using a regex, if you wish, or leave blank for all.
 $filter = "";
